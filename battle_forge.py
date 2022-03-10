@@ -1,6 +1,16 @@
 from concurrent.futures import process
 import subprocess
-#imports the subprocess library to run cmd
+import os
+#imports required libraries
+
+#defines file path
+directory = os.path.expanduser('~/Documents')
+
+#test if path is correct
+textfile = open(f'C:/Users{directory}', 'w')
+lines=['test complete']
+textfile.writelines(lines)
+textfile.close()
 
 #base function to run code on local user's command line
 def runcmd(cmd, verbose = False, *args, **kwargs) :
@@ -21,3 +31,7 @@ def runcmd(cmd, verbose = False, *args, **kwargs) :
         pass
 
 runcmd('echo "hello, World!" ', verbose = True)
+
+
+
+# runcmd("wget -P  https://github.com/TTSWarhammer40k/Battleforged-Workshop-Mod-Compilation/raw/master/battle-forge.zip", verbose=True)
